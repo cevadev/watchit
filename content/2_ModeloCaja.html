@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Modelo de Caja</title>
+</head>
+<style>
+    /*Las paginas por defecto tienen un margin, debemos quitar ese margin por defect
+    body{
+        margin: 0;
+    }*/
+    .caja1
+    {
+        background-color: #E3E36A;
+        width: 20px;
+        height: 20px;
+        /*El padding siempre afecta el modelo de caja. Se suman width + heigh + padding*/
+        padding: 20px;
+        /*border -> tamano - estilo*/
+        border: 2px solid #C16200;
+        /*forzamos a que se respete el tamano de la caja*/
+        box-sizing: border-box;
+        /*Los margins siguen las manecillas del reloj -> 1er valor es top, 2do right, 3er bottom, 4to left*/
+        /*aplicamos un margen inferior entre las cajas*/
+        margin-bottom: 10px;
+    }
+    .caja2
+    {
+        background-color: #fdef96;
+        width: 30px;
+        height: 30px;
+    }
+</style>
+<body>
+    <div class="caja1"></div>
+    <div class="caja2"></div>
+</body>
+</html>
