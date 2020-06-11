@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+    /*Aplicamos estilo al primer hijo de p
+    p:first-child{
+        color: red;
+    }*/
+
+    /*Aplicamos estilo al ultimo hijo de p
+    p:last-child{
+        color: green;
+    }*/
+
+    /*nth-child -> n es un numero cualquiera y th ordinal numbers*/
+    /*Aplicar estilo a todos los elementos en posicion par*/
+    /*2 * 0 = 0 // 2 * 1 = 2 // 2 * 2 = 4 => siempre es numero par
+    p:nth-child(2n){
+        color: blueviolet;
+    }*/
+
+    /*Aplicar estilos a todos los elementos en posicion impar
+    /*2 * 0 +1 = 1 // 2 * 1 + 1 = 3 // 2 * 2 + 1 = 5 => siempre es numero impar
+    p:nth-child(2n+1)
+    {
+        color: red;
+    }*/
+
+    p::first-letter{
+        color: red;
+        font-size: 20px;
+    }
+
+</style>
+<body>
+    <p>Police man</p>
+    <p>👽 Alien</p>
+    <p>🤡 Cloun</p>
+    <p>🦸‍♂️ Super boy</p>
+    <p>🦸‍♀️ Super girl</p>
+    <p>😡 Angry</p>
+</body>
+</html>
