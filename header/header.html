@@ -9,10 +9,11 @@
 <style>
     body {
         margin: 0px;
+        background-color: #ab88ff;
     }
 
-    header {
-        background-color: #21C08B;
+    .header {
+        background-color: #ab88ff;
         /*aplicamos el width con medida relativa porque queremos que se ajuste a todos los niveles de pantalla*/
         width: 100%;
         /*el header va a todo el ancho */
@@ -20,16 +21,29 @@
     }
 
     /*aplicamos estilo a todo los hijos de tipo img que contenga el padre header*/
-    header img {
+    .header__img {
         width: 200px;
         margin-top: 10px;
         margin-left: 10px;
     }
+
+    .header__menu
+    {
+        /*margin para el menu y final de la pantalla*/
+        margin-right: 30px;
+    }
+
 </style>
 
 <body>
-    <header>
-        <img src="../assets/images/logo-video.png" />
+    <header class="header">
+        <img class="header__img" src="../assets/images/logo-video.png" />
+        <!--div contenedor del menu desplegable-->
+        <div class="header__menu">
+            <!--divs para los elementos del menu: Perfil y Cerrar Session-->
+            <div class="header__menu--profile"></div>
+            <div class="header__menu--session"></div>
+        </div>
     </header>
 </body>
 
