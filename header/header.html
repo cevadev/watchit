@@ -4,20 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@200;400&display=swap" rel="stylesheet">
     <title>Valores absolutos</title>
 </head>
 <style>
     body {
         margin: 0px;
-        background-color: #ab88ff;
+        font-family: 'Muli', sans-serif;
+        background-color: #8f57fd;
     }
 
     .header {
-        background-color: #ab88ff;
+        background-color: #8f57fd;
         /*aplicamos el width con medida relativa porque queremos que se ajuste a todos los niveles de pantalla*/
         width: 100%;
         /*el header va a todo el ancho */
         height: 80px;
+        display: flex; /*utilizamos la especificacion flexbox*/
+        /*entre el logo y el menu perfil exista un espacio*/
+        justify-content: space-between;
+        align-items: center;
     }
 
     /*aplicamos estilo a todo los hijos de tipo img que contenga el padre header*/
@@ -32,19 +38,116 @@
         /*margin para el menu y final de la pantalla*/
         margin-right: 30px;
     }
+    /*cuando hacemos hover al header__menu y al ul aparece todo el menu (ul)*/
+    .header__menu:hover ul, ul:hover
+    {
+        /*por defecto la lista no se muestra, al hacer hover la hacemos visible*/
+        display: block;
+    }
+
+    .header__menu ul
+    {
+        /*ocultamos la lista*/
+        display: none;
+        list-style: none; /*quitamos los puntos de la lista*/
+        padding: 0px; /*quitamos el padding por defecto que tiene el list item*/
+        position: absolute;
+        width: 100px;
+        text-align: right;
+        margin: 0px 0px 0px -14px;
+    }
+    /*stilos para los li*/
+    .header__menu li
+    {
+        margin: 10px 0px; /*10px para el top y bottom / 0px para el right y left*/
+    }
+
+    /*estilos para los a href dentro de los li*/
+    .header__menu li a
+    {
+        color: white;
+        text-decoration: none; /*sin linea*/
+    }
+
+    .header__menu li a:hover
+    {
+        text-decoration: underline;
+    }
+
+    .header__menu--profile
+    {
+        /*espaciado*/
+        margin-right: 8px;
+        display: flex;
+        align-items: center;
+    }
+
+    .header__menu--profile img
+    {
+        margin-right: 8px;
+        height: 30px;
+        width: 30px;
+    }
+
+    .header__menu--profile p
+    {
+        margin: 0px;
+        color: white;
+    }
+
+    /*Contenedor main*/
+    .main
+    {
+        height: 300px;
+    }
+
+    .main__title
+    {
+        color: white;
+        font-size: 25px;
+    }
+
+    .input
+    {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 2px solid white;
+        border-radius: 25px;
+        color: white;
+        font-family: 'Multi', sans-serif;
+        font-size: 16px;
+        height: 25px;
+        padding: 0px 20px;
+        width: 70%; /*aplicamos medida relativa*/
+        outline: none;
+    }
+
+    ::placeholder
+    {
+        color: white;
+    }
 
 </style>
 
 <body>
     <header class="header">
-        <img class="header__img" src="../assets/images/logo-video.png" />
+        <img class="header__img" src="../assets/images/logo-video.png"/>
         <!--div contenedor del menu desplegable-->
         <div class="header__menu">
             <!--divs para los elementos del menu: Perfil y Cerrar Session-->
-            <div class="header__menu--profile"></div>
-            <div class="header__menu--session"></div>
+            <div class="header__menu--profile">
+                <img src="../assets/images/profile.png" alt="User">
+                <p>Perfil</p>
+            </div>
+            <!--la lista debe verse cuando se hace hover es decir, se acerca el mouse-->
+            <ul>
+                <li><a href="/">Cuenta</a></li>
+                <li><a href="/">Cerrar</a></li>
+            </ul>
         </div>
     </header>
+    <section class="main">
+        <h2 class="main__title">¿Qué quieres ver hoy?</h2>
+        <input class="input" placeholder="Buscar..." type="text"><!--nombramos class input para tener el componente input disponible para otro uso-->
+    </section>
 </body>
-
 </html>
