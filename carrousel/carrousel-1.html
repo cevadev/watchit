@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrousel 1</title>
+</head>
+<style>
+    body{
+        margin: 0px;
+    }
+    .carrousel{
+        width: 100%; /*carrousel a toda la pantalla*/
+        overflow: scroll; /*se habilite un sroll*/
+        padding: 30px;
+        position: relative;/*todos lo elementos dentro del carrousel se posicionan en relacion del padre*/
+    }
+    .carrousel__container{
+        white-space: nowrap; /*evitamos que las fotos del carrousel se vayan abajo, y las mantenemos en linea*/
+        margin: 70px 0px; /*margin top & bottom*/
+        padding-bottom: 10px;
+    }
+    .carrousel-item{
+        display: inline-block; /*evitamos que las fotos se coloquen una debajo de otra*/
+        background-color: blueviolet;
+        width: 200px;
+        height: 250px;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-right: 10px;
+        cursor: pointer;
+        transition: 450ms all;
+        transform-origin: center left;
+        position: relative;
+    }
+    .carrousel-item:hover ~ .carrousel-item{
+        transform: translate3d(100px, 0, 0);
+    }
+    /*Cuando hacemos hover sobre un item lo otros item pierden opacidad*/
+    .carrousel__container:hover .carrousel-item{
+        opacity: 0.3;
+    }
+    /*el item hecho hover debe tener una escala mayor*/
+    .carrousel__container:hover .carrousel-item:hover{
+        transform: scale(1.5); /*por defecto la imagen tiene un scale de 1, aqui aumentamis ka escalade fiti*/
+        opacity: 1; /*cuando hacemos hover le quitamos a opacidad al item seleccionado*/
+    }
+    .carrousel-item__img{
+        width: 200px;
+        height: 250px;
+        object-fit: cover;/*la imagen recupera su nitidez y dimension*/
+    }
+    /*detalles en las imagenes del carrousel*/
+    .carrousel-item__details{
+        background: linear-gradient(to top, rgba(0,0,0, 0.9) 0%, rgba(0,0,0,0)100%); /*desvanecido*/
+        font-size: 10px;
+        opacity: 1;
+        transition: 450ms opacity;
+        padding: 10px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    .carrousel-item__details:hover{
+        opacity: 1;
+    }
+    .carrousel-item__details img{
+        width: 30px;
+        height: 30px;
+        position: relative;
+    }
+    .carrousel-item__details--title, .carrousel-item__details--subtitle{
+        color: white;
+        font-family: 'Multi', sans-serif;
+        margin: 6px;
+    }
+</style>
+<body>
+    <!--nombre del contenedor general llamado carrousel-->
+    <section class="carrousel">
+        <!--segundo contenedor -->
+        <div class="carrousel__container">
+            <!--items o fotos del carrousel-->
+            <div class="carrousel-item">
+                <img class="carrousel-item__img" src="../assets/images/people1.jpg" alt="working">
+                <!--detalles de nuestra imagen-->
+                <div class="carrousel-item__details">
+                    <div>
+                        <img src="../assets/images/play.png" alt="Play">
+                        <img src="../assets/images/plus.png" alt="Add">
+                    </div>
+                    <p class="carrousel-item__details--title">Titulo descriptivo</p>
+                    <p class="carrousel-item__details--subtitle">2019 16+ 114 minutos</p>
+                </div>
+            </div>
+            <div class="carrousel-item">
+                <img class="carrousel-item__img" src="../assets/images/people2.jpg" alt="office">
+            </div>
+        </div>
+    </section>
+</body>
+</html>
